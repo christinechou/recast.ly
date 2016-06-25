@@ -3,7 +3,7 @@ class App extends React.Component {
     super(props);
     this.state = {
       currentVideo: exampleVideoData[0],
-      videolist: exampleVideoData 
+      videolist: searchYouTube('') 
     };
 
 
@@ -14,6 +14,10 @@ class App extends React.Component {
     this.setState({
       currentVideo: event
     });
+  }
+
+  searchyt(query, max) {
+    this.props.searchFn({key: window.YOUTUBE_API_KEY, q: query, maxResults: max});
   }
 
   // var OnVideoClick = onVideoClick.bind(this);
